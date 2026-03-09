@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Simple Store</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html">Simple Store Admin</a></div>
+        <div class="nav-links">
+            <a href="../index.html">Return to Store</a>
+        </div>
+    </nav>
+
+    <div class="container auth-container" style="border-top: 5px solid #e74c3c;">
+        <h2 style="text-align: center; margin-bottom: 1.5rem; color: #e74c3c;">Admin Restricted Access</h2>
+        <form id="admin-login-form">
+            <div class="form-group">
+                <label for="admin-email">Admin Email</label>
+                <input type="email" id="admin-email" required placeholder="admin@simplestore.com">
+            </div>
+            <div class="form-group">
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" required placeholder="Enter admin password">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; background-color: #e74c3c;">Secure Login</button>
+            <div id="admin-login-error" style="color:red; text-align:center; margin-top:1rem;"></div>
+        </form>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

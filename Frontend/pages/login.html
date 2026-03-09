@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Simple Store</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html">Simple Store</a></div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="register.html">Register</a>
+        </div>
+    </nav>
+
+    <div class="container auth-container">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Log In</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Log In</button>
+            <div class="auth-links">
+                Don't have an account? <a href="register.html">Register here</a>
+            </div>
+            <div id="login-error" style="color:red; text-align:center; margin-top:1rem;"></div>
+        </form>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

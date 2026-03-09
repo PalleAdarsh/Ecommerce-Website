@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">Simple Store</a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="pages/admin-login.html" style="font-weight: bold; color: #e74c3c;">Admin</a>
+            <a href="pages/login.html" id="nav-login">Login</a>
+            <a href="pages/register.html" id="nav-register">Register</a>
+            <span id="nav-user" style="display:none;"></span>
+            <button id="nav-logout" style="display:none;" onclick="logout()">Logout</button>
+            <div class="cart-container" onclick="toggleCart()">
+                Cart (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Products</h1>
+        <div id="product-list" class="grid-container">
+            <p>Loading products...</p>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Shopping Cart</h2>
+            <button onclick="toggleCart()">Close</button>
+        </div>
+        <div id="cart-items" class="sidebar-content">
+            <p>Your cart is empty.</p>
+        </div>
+        <div class="sidebar-footer">
+            <h3>Total: ₹<span id="cart-total">0.00</span></h3>
+            <button class="btn btn-primary" style="width:100%">Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
