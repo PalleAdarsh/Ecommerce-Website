@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         addProductForm.addEventListener("submit", handleAddProduct);
+        fetchAdminProducts();
     }
 
     const adminLoginForm = document.getElementById("admin-login-form");
@@ -229,9 +230,47 @@ async function handleAddProduct(e) {
         msgEl.style.color = "green";
         msgEl.textContent = "Product successfully added!";
         document.getElementById("add-product-form").reset();
+        fetchAdminProducts();
     } catch {
         msgEl.style.color = "red";
         msgEl.textContent = "Error saving product.";
+    }
+}
+
+async function fetchAdminProducts() {
+    const listEl = document.getElementById("admin-product-list");
+    if (!listEl) return;
+
+    try {
+        const response = await fetch(`${API_URL}/products`);
+        const prods = await response.json();
+
+        if (prods.length === 0) {
+            listEl.innerHTML = "<p>No products yet.</p>";
+            return;
+        }
+
+        listEl.innerHTML = prods.map(p => `
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem; margin-bottom:0.5rem; background:#f9f9f9; border-radius:6px;">
+                <div>
+                    <strong>${p.name}</strong> — ₹${p.price}
+                </div>
+                <button onclick="deleteProduct(${p.id})" style="background:#e74c3c; color:white; border:none; padding:0.4rem 0.8rem; border-radius:4px; cursor:pointer;">Delete</button>
+            </div>
+        `).join("");
+    } catch {
+        listEl.innerHTML = "<p style='color:red;'>Failed to load products.</p>";
+    }
+}
+
+async function deleteProduct(id) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+
+    try {
+        await fetch(`${API_URL}/products/${id}`, { method: "DELETE" });
+        fetchAdminProducts();
+    } catch {
+        alert("Error deleting product.");
     }
 }
 

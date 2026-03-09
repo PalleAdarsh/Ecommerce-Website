@@ -116,6 +116,16 @@ app.post("/products", (req, res) => {
     res.status(201).json(newProduct);
 });
 
+app.delete("/products/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = products.findIndex(p => p.id === id);
+    if (index === -1) {
+        return res.status(404).json({ error: "Product not found" });
+    }
+    products.splice(index, 1);
+    res.json({ message: "Product deleted" });
+});
+
 // ===============================
 // Cart endpoints
 // ===============================
