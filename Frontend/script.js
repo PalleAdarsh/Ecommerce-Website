@@ -1,7 +1,7 @@
 // ===============================
 // Configuration - Backend API URL
 // ===============================
-const API_URL = "https://ecommerce-website-1.onrender.com";// replace with your real backend URL if different
+const API_URL = "https://ecommerce-website-1-jk2i.onrender.com";// replace with your real backend URL if different
 
 // ===============================
 // State
