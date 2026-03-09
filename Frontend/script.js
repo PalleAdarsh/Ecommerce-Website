@@ -1,5 +1,7 @@
-// Configuration
-const API_URL = 'http://localhost:8080';
+// Configuration - auto-detect environment
+const API_URL = (window.location.hostname === 'localhost' || window.location.protocol === 'file:')
+    ? 'http://localhost:8080'
+    : '';
 
 // State
 let products = [];
